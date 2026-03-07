@@ -1,0 +1,40 @@
+ import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Offers from "./pages/Offers";
+import Destination from "./pages/Destination";
+import Dashboard from "./pages/Dashboard";
+import TripDetails from "./pages/TripDetails";
+ 
+
+function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/offers" element={<Offers />} />
+        <Route path="/destination" element={<Destination />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/tripdetails" element={<TripDetails />} />
+         
+      </Routes>
+
+      <Footer />
+    </>
+  );
+}
+
+export default App;

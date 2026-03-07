@@ -1,0 +1,75 @@
+ .hero{
+height:90vh;
+background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:black;
+}
+
+ .hero h1{
+font-size:42px;
+color:#0b2a4a;   /* dark blue */
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#0b2a4a;   /* dark blue */
+margin-bottom:35px;
+}
+
+.planner{
+background:white;
+padding:40px;
+border-radius:15px;
+width:800px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.planner h2{
+margin-bottom:25px;
+}
+
+.form-row{
+display:flex;
+gap:25px;
+margin-bottom:20px;
+}
+
+.form-row div{
+flex:1;
+text-align:left;
+}
+
+label{
+font-weight:600;
+display:block;
+margin-bottom:5px;
+}
+
+input, select{
+width:100%;
+padding:10px;
+border:2px solid #ccc;
+border-radius:6px;
+}
+
+.create-btn{
+margin-top:10px;
+padding:12px 30px;
+background:#ff8c00;
+border:none;
+border-radius:25px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.create-btn:hover{
+background:#ffa733;
+}

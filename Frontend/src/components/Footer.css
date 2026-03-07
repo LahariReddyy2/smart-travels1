@@ -1,0 +1,28 @@
+ .footer{
+background:#0a3d62;
+color:white;
+padding:40px 20px;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-section{
+width:220px;
+margin-bottom:20px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:20px;
+border-top:1px solid rgba(255,255,255,0.3);
+padding-top:10px;
+}
+.footer{
+margin-top:80px;
+}

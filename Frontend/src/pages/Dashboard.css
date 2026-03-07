@@ -1,0 +1,80 @@
+ 
+.dashboard-container{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI',sans-serif;
+}
+ 
+.welcome{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.welcome h1{
+    font-size:38px;
+    font-weight:bold;
+}
+
+.welcome p{
+    margin-top:8px;
+    color:#555;
+}
+
+/* Planner card */
+.planner-card{
+    background:white;
+    padding:50px;
+    width:900px;        
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+ 
+.planner-card h2{
+    text-align:center;
+    margin-bottom:35px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+ 
+.form-row{
+    display:flex;
+    gap:40px;           
+    margin-bottom:25px;
+}
+
+ 
+.input-box{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+ 
+.input-box label{
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+ 
+.input-box input,
+.input-box select{
+    padding:12px;
+    border:2px solid #bbb;   /* THICK BORDER */
+    border-radius:8px;
+    font-size:15px;
+}
+ 
+.create-btn{
+    display:block;
+    margin:35px auto 0;
+    padding:12px 30px;
+    background:#ff6b00;
+    border:none;
+    color:white;
+    border-radius:22px;
+    font-size:15px;
+    cursor:pointer;
+}
