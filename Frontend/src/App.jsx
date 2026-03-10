@@ -11,11 +11,14 @@ import Offers from "./pages/Offers";
 import Destination from "./pages/Destination";
 import Dashboard from "./pages/Dashboard";
 import TripDetails from "./pages/TripDetails";
- 
+import MyTrips from "./pages/MyTrips";
+import Profile from "./pages/profile";
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("user") ? true : false
+  );
 
   return (
     <>
@@ -23,13 +26,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tripdetails" element={<TripDetails />} />
-         
+        <Route path="/my-trips" element={<MyTrips />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
 
       <Footer />

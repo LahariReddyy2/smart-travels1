@@ -1,18 +1,18 @@
  import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useState}  from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
- function Navbar({ isLoggedIn, setIsLoggedIn }) {
 
-const navigate = useNavigate();
+function Navbar({ isLoggedIn, setIsLoggedIn }) {
 
-const handleLogout = () => {
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
-localStorage.removeItem("user");
-setIsLoggedIn(false);
-navigate("/login");
-
-};
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar">
@@ -23,43 +23,55 @@ navigate("/login");
         <li><Link to="/">Home</Link></li>
         <li><Link to="/offers">Offers</Link></li>
         <li><Link to="/destination">Destination</Link></li>
-
-         
       </ul>
 
       <div className="auth-buttons">
 
-<Link to="/login">
-<button className="login-btn">Login</button>
-</Link>
+        {!isLoggedIn ? (
 
-{/* Profile Menu */}
+          <button className="login-btn" onClick={() => navigate("/login")}>
+            Login
+          </button>
 
-<div className="profile-menu">
+        ) : (
 
- <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-className="profile-icon"/>
+          <div className="profile-menu">
 
-<div className="profile-dropdown">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              alt="profile"
+              className="profile-icon"
+              onClick={() => setOpen(!open)}
+            />
 
-<Link to="/my-trips"><p>My Trips</p></Link>
+            {open && (
+              <div className="profile-dropdown">
+                <Link to="/profile"><p>Profile</p></Link>
 
-<Link to="/bookings"><p>My Bookings</p></Link>
+                <Link to="/my-trips"><p>My Trips</p></Link>
 
-<Link to="/saved-places"><p>Saved Places</p></Link>
+                <Link to="/saved-places"><p>Saved Places</p></Link>
 
-<Link to="/travel-history"><p>Travel History</p></Link>
+                <Link to="/travel-history"><p>Travel History</p></Link>
 
-<div className="profile-item logout" onClick={handleLogout}>
-Logout
+                <Link to="/settings"><p>Settings</p></Link>
 
-</div>
+                <hr />
 
-</div>
+                <div className="profile-item logout" onClick={handleLogout}>
+                  Logout
+                </div>
 
-</div>
-</div>
-   </nav>
+              </div>
+            )}
+
+          </div>
+
+        )}
+
+      </div>
+
+    </nav>
   );
 }
 

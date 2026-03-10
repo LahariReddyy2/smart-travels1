@@ -41,9 +41,13 @@ function Home() {
   };
  
 
-const handleCreateTrip = () => {
+  
+
+ 
+const handleCreateTrip = async () => {
 
   const user = localStorage.getItem("user");
+  const userEmail = localStorage.getItem("userEmail");
 
   if (!user) {
     navigate("/login", {
@@ -58,6 +62,31 @@ const handleCreateTrip = () => {
       }
     });
     return;
+  }
+
+  // SEND TRIP DATA TO BACKEND
+  try {
+
+    const data = {
+      userEmail,
+      fromCity,
+      toCity,
+      startDate,
+      endDate,
+      tripType,
+      tripOption
+    };
+
+    await fetch("http://localhost:5000/api/trips/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+  } catch (error) {
+    console.log(error);
   }
 
   navigate("/tripdetails", {
@@ -146,7 +175,7 @@ setToCity(location.state.destination);
 
             <div>
               <label>Trip Option</label>
-              <select>
+               <select value={tripOption} onChange={(e)=>setTripOption(e.target.value)}>
                 <option>Round Trip</option>
                 <option>One Way</option>
                 <option>Multi-city</option>
@@ -183,5 +212,6 @@ setToCity(location.state.destination);
 
   );
 }
+
 
 export default Home;
