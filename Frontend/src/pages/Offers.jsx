@@ -1,7 +1,6 @@
 import "./Offers.css";
 
 function Offers() {
-
   const coupons = [
     { code: "TRAVEL20", desc: "Get 20% off on your first booking" },
     { code: "FLY10", desc: "Flat 10% discount on flight bookings" },
@@ -37,11 +36,9 @@ function Offers() {
 
   return (
     <div className="offers-page">
-
-      <h1>Travel Offers ✈</h1>
+      <h1>Travel Offers</h1>
       <p className="subtitle">Best deals for your next trip</p>
 
-      
       <div className="coupon-section">
         <h2>Coupons</h2>
 
@@ -56,7 +53,6 @@ function Offers() {
         </div>
       </div>
 
-      
       <div className="offers-container">
         {offers.map((offer, index) => (
           <div className="offer-card" key={index}>
@@ -67,11 +63,9 @@ function Offers() {
               <p>{offer.desc}</p>
               <span className="discount">{offer.discount}</span>
             </div>
-
           </div>
         ))}
       </div>
-
     </div>
   );
 }

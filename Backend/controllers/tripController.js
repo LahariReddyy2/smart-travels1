@@ -39,27 +39,7 @@ const getUserTrips = async (req, res) => {
 };
 
 
-// DELETE TRIP
-const deleteTrip = async (req, res) => {
-
- try {
-
-  const { id } = req.params;
-
-  await Trip.findByIdAndDelete(id);
-
-  res.json({ message: "Trip deleted successfully" });
-
- } catch (error) {
-
-  res.status(500).json({ error: error.message });
-
- }
-
-};
-
-
-// UPDATE TRIP
+// UPDATE TRIP (USED FOR EDIT TRIP)
 const updateTrip = async (req, res) => {
 
  try {
@@ -71,6 +51,10 @@ const updateTrip = async (req, res) => {
     req.body,
     { new: true }
   );
+
+  if (!updatedTrip) {
+    return res.status(404).json({ message: "Trip not found" });
+  }
 
   res.json(updatedTrip);
 
@@ -84,4 +68,4 @@ const updateTrip = async (req, res) => {
 
 
 // EXPORT FUNCTIONS
-export { createTrip, getUserTrips, deleteTrip, updateTrip };
+export { createTrip, getUserTrips, updateTrip };

@@ -1,0 +1,78 @@
+.back-button-wrap {
+  position: sticky;
+  top: 92px;
+  z-index: 90;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding-left: 4px;
+}
+
+.back-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 12px 14px;
+  border: 1px solid rgba(23, 50, 77, 0.1);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 252, 0.96) 100%);
+  color: #17324d;
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(23, 50, 77, 0.1);
+  backdrop-filter: blur(16px);
+  transition: transform 0.2s ease, box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+  overflow: hidden;
+}
+
+.back-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.58) 50%, rgba(255, 255, 255, 0) 76%);
+  transform: translateX(-130%);
+  transition: transform 0.55s ease;
+}
+
+.back-button svg {
+  flex-shrink: 0;
+  font-size: 1.02rem;
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #17324d 0%, #2f638a 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 18px rgba(23, 50, 77, 0.18);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 149, 84, 0.28);
+  background: #ffffff;
+  box-shadow: 0 20px 36px rgba(23, 50, 77, 0.14);
+}
+
+.back-button:hover::before {
+  transform: translateX(125%);
+}
+
+.back-button:focus-visible {
+  outline: 3px solid rgba(255, 149, 84, 0.2);
+  outline-offset: 4px;
+}
+
+@media (max-width: 820px) {
+  .back-button-wrap {
+    top: 84px;
+  }
+}
+
+@media (max-width: 560px) {
+  .back-button {
+    padding-right: 18px;
+    border-radius: 16px;
+  }
+}

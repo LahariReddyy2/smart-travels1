@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 const registerUser = async (req, res) => {
   try {
 
-    let { name, email,mobile, password } = req.body;
+    let { name, email, mobile, password } = req.body;
 
     // remove spaces and normalize email
     email = email.trim().toLowerCase();
@@ -69,4 +69,53 @@ const loginUser = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser };
+ const updateProfile = async (req, res) => {
+  try {
+
+    const { name, email, mobile, password } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ message: "Email required" });
+    }
+
+    // find user
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    let updatedData = {};
+
+    if (name) {
+      updatedData.name = name;
+    }
+
+    if (mobile) {
+      updatedData.mobile = mobile;
+    }
+
+    // hash password only if user typed a new one
+    if (password && password.trim()) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      updatedData.password = hashedPassword;
+    }
+
+    const updatedUser = await User.findOneAndUpdate(
+      { email },
+      updatedData,
+      { new: true }
+    );
+
+    res.json({
+      message: "Profile updated successfully",
+      user: updatedUser
+    });
+
+  } catch (error) {
+    console.log("Update Profile Error:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+export { registerUser, loginUser, updateProfile };

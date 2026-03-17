@@ -1,4 +1,7 @@
- import { Routes, Route } from "react-router-dom";
+ import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar";
@@ -22,6 +25,15 @@ function App() {
 
   return (
     <>
+      <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />
+
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
@@ -30,7 +42,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/destination" element={<Destination />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/tripdetails" element={<TripDetails />} />
         <Route path="/my-trips" element={<MyTrips />} />
         <Route path="/profile" element={<Profile />} />

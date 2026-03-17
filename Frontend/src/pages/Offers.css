@@ -1,95 +1,112 @@
 .offers-page{
-    padding:40px;
-    text-align:center;
+    padding:32px;
 }
 
 .offers-page h1{
-    font-size:36px;
+    margin:0;
+    text-align:center;
+    font-size:44px;
+    color:#17324d;
 }
 
 .subtitle{
-    color:#555;
-    margin-bottom:30px;
+    color:#617283;
+    margin:12px 0 34px;
+    text-align:center;
+    font-size:17px;
 }
 
- 
-
 .coupon-section{
-    margin-bottom:50px;
+    margin-bottom:46px;
 }
 
 .coupon-container{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+    margin-top:18px;
 }
 
 .coupon-card{
-    background:#fff;
-    padding:20px;
-    width:220px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    background:linear-gradient(135deg, #fff3e8 0%, #ffffff 100%);
+    padding:22px;
+    border-radius:22px;
+    border:1px solid rgba(255,147,77,0.18);
+    box-shadow:0 20px 38px rgba(23,50,77,0.06);
 }
 
 .coupon-card h3{
-    color:#ff6b00;
-    margin-bottom:8px;
+    color:#d06a1f;
+    margin:0 0 8px;
+    font-size:24px;
 }
 
 .coupon-card p{
     font-size:14px;
-    color:#555;
+    color:#617283;
+    line-height:1.6;
 }
 
 .coupon-card button{
-    margin-top:10px;
-    background:#ff6b00;
+    margin-top:14px;
+    background:#17324d;
     color:white;
     border:none;
-    padding:7px 15px;
-    border-radius:15px;
+    padding:10px 16px;
+    border-radius:12px;
     cursor:pointer;
+    font-weight:700;
 }
-
- 
 
 .offers-container{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:30px;
+    gap:26px;
 }
- 
 
 .offer-card{
     background:white;
-    border-radius:10px;
+    border-radius:24px;
     overflow:hidden;
-    box-shadow:0 6px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
+    border:1px solid rgba(23,50,77,0.08);
+    box-shadow:0 22px 42px rgba(23,50,77,0.08);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .offer-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+    box-shadow:0 28px 48px rgba(23,50,77,0.12);
 }
 
 .offer-card img{
     width:100%;
-    height:180px;
+    height:210px;
     object-fit:cover;
 }
 
 .offer-content{
-    padding:15px;
+    padding:20px;
+    text-align:left;
+}
+
+.offer-content h3{
+    margin:0 0 10px;
+    color:#17324d;
+}
+
+.offer-content p{
+    margin:0;
+    color:#617283;
+    line-height:1.6;
 }
 
 .discount{
     display:inline-block;
-    margin-top:10px;
-    background:#ff6b00;
+    margin-top:14px;
+    background:linear-gradient(135deg, #ff934d 0%, #ffb26b 100%);
     color:white;
-    padding:6px 12px;
-    border-radius:15px;
+    padding:8px 12px;
+    border-radius:999px;
     font-size:13px;
+    font-weight:800;
 }
